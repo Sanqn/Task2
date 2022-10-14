@@ -33,12 +33,12 @@ https://www.wildberries.ru/catalog/73512949/detail.aspx
    (в терминале вашей ide укажите команду 'git clone https://github.com/Sanqn/Task2.git')
 4. Для корректной работы программы перейдите в директорию где содержится файл manage.py и 
    командой pip install -r requirements.txt установите все зависимости. 
-5. В task2/settings.py, в разделе DATABASES укажите параметры базы данных Postgres
+5. В task2/settings.py, в разделе DATABASES укажите параметры базы данных Postgresql
 6. Проведите миграции в бд командой python manage.py migrate
 7. Запустите сервер командой python manage.py runserver и перейдите по ссылке 
    Starting development server at http://127.0.0.1:8000/
 8. Перейдите по ссылке указанной на странице "wbdata": "http://127.0.0.1:8000/wbdata/"
-9. Загрузите файл xlsx(для примерна загрузите файлб test_file.xlsx) или в окне(article) укажите 
+9. Загрузите файл xlsx(для примерна загрузите файл test_file.xlsx) или в окне(article) укажите 
    значение такого типа: 73512949 и нажмите post, Дождитесь ответа.
    
    ![Image text](https://i.ibb.co/hC1fKbq/Screen1.png)
