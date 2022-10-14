@@ -33,7 +33,7 @@ https://www.wildberries.ru/catalog/73512949/detail.aspx
    (в терминале вашей ide укажите команду 'git clone https://github.com/Sanqn/Task2.git')
 4. Для корректной работы программы перейдите в директорию где содержится файл manage.py и 
    командой pip install -r requirements.txt установите все зависимости. 
-5. В task2/settings.py, в разделе DATABASESб укажите параметры базы данных Postgres
+5. В task2/settings.py, в разделе DATABASES укажите параметры базы данных Postgres
 6. Проведите миграции в бд командой python manage.py migrate
 7. Запустите сервер командой python manage.py runserver и перейдите по ссылке 
    Starting development server at http://127.0.0.1:8000/
