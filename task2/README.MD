@@ -38,7 +38,7 @@ https://www.wildberries.ru/catalog/73512949/detail.aspx
 7. Запустите сервер командой python manage.py runserver и перейдите по ссылке 
    Starting development server at http://127.0.0.1:8000/
 8. Перейдите по ссылке указанной на странице "wbdata": "http://127.0.0.1:8000/wbdata/"
-9. ![image](https://drive.google.com/file/d/15bd8XShcjbQtwVJslN0VIM4OAahUwmJM/view?usp=sharing)
-   загрузите файл xlsx(для примерна загрузите файлб test_file.xlsx) или в окне(article) укажите 
+9. Загрузите файл xlsx(для примерна загрузите файлб test_file.xlsx) или в окне(article) укажите 
    значение такого типа: 73512949 и нажмите post, Дождитесь ответа.
+   ![Image text](https://i.ibb.co/hC1fKbq/Screen1.png)
 10. Если загрузить файл с другим расширением появится предупреждение.
