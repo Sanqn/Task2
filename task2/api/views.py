@@ -35,7 +35,7 @@ class WbDataViews(viewsets.ModelViewSet):
 
         if article:
             list_link = [f'https://www.wildberries.ru/catalog/{article}/detail.aspx']
-            list_json = tr(list_link)
+            list_json = paresr_data(list_link)
             for i in list_json:
                 article_in_db = WbData.objects.filter(article=i['article'])
                 if not article_in_db:
