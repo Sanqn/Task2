@@ -16,7 +16,6 @@ class WbDataViews(viewsets.ModelViewSet):
     queryset = WbDataFile.objects.all()
     serializer_class = WbDataFileSerializer
 
-    # file extension check
     def check_file_name(self, name):
         name = str(name)
         if name.endswith('.xlsx'):
@@ -24,7 +23,6 @@ class WbDataViews(viewsets.ModelViewSet):
         else:
             return False
 
-    # If no data in db, save
     def save_db(self, url):
         serializer = WbDataSerializer(data=url)
         serializer.is_valid()
@@ -52,13 +50,11 @@ class WbDataViews(viewsets.ModelViewSet):
                 # Save file in folder
                 filename = fs.save(up_file.name, up_file)
                 fs.url(filename)
-                # Take file and open
                 excel_data_df = pandas.read_excel(f'media/{up_file}')
                 list_articles = list(excel_data_df['articles'])
                 list_links = []
                 for i in list_articles:
                     list_links.append(f'https://www.wildberries.ru/catalog/{i}/detail.aspx')
-                # Delete file
                 os.remove(f'media/{up_file}')
                 list_paresr_data = paresr_data(list_links)
                 for i in list_paresr_data:
