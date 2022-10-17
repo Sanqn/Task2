@@ -4,7 +4,7 @@ from playwright.async_api import async_playwright, Playwright
 from pydantic import BaseModel
 
 
-class Person(BaseModel):
+class WB_data(BaseModel):
     article: str
     brand: str
     title: str
@@ -17,35 +17,35 @@ async def basket(url_json):
             a = await resp.json()
             title = a['imt_name'].replace('"', '*')
             data = {"article": a['nm_id'], "brand": a['selling']['brand_name'], "title": title}
-            person = Person(**data)
-            return person.dict()
+            wb_data = WB_data(**data)
+            return wb_data.dict()
 
 
 # +++++++++++++++++++++++++++ Take url with card.json and wait tasks +++++++++++++++++++++++++++++++++++++
-async def get_task(ur):
-    task = await asyncio.gather(*[basket(url_json) for url_json in ur])
+async def get_task(urls_json):
+    task = await asyncio.gather(*[basket(url_json) for url_json in urls_json])
     return list(task)
 
 
 # +++++++++++++++++++++++++++ Find url with card.json +++++++++++++++++++++++++++++++++++++++++++++++++++
-async def run(p: Playwright, urls):
-    f = []
+async def find_json_url(p: Playwright, urls):
+    list_finf_urls = []
     for url in urls:
         browser_type = p.chromium
         browser = await browser_type.launch()
         page = await browser.new_page()
-        page.on("response", lambda response: f.append(response.url))
+        page.on("response", lambda response: list_finf_urls.append(response.url))
         await page.goto(url, wait_until="networkidle")
         await browser.close()
-    d = [i for i in f if 'card.json' in i]
-    a = await get_task(d)
+    urls_json = [i for i in list_finf_urls if 'card.json' in i]
+    a = await get_task(urls_json)
     return a
 
 
 # +++++++++++++++++++++++++++ Create task +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 async def main(urls):
     async with async_playwright() as p:
-        results = await asyncio.create_task(run(p, urls))
+        results = await asyncio.create_task(find_json_url(p, urls))
         return results
 
 
@@ -55,6 +55,6 @@ def start(urls):
 
 
 # +++++++++++++++++++++++++++ Take list urls +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-def tr(list_json):
-    a = start(list_json)
+def paresr_data(urls):
+    a = start(urls)
     return a

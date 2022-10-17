@@ -9,7 +9,7 @@ import os
 from .serializers import WbDataSerializer, WbDataFileSerializer
 
 from .models import WbData, WbDataFile
-from .parser import tr
+from .parser import paresr_data
 
 
 class WbDataViews(viewsets.ModelViewSet):
@@ -17,7 +17,7 @@ class WbDataViews(viewsets.ModelViewSet):
     serializer_class = WbDataFileSerializer
 
     # file extension check
-    def check_name(self, name):
+    def check_file_name(self, name):
         name = str(name)
         if name.endswith('.xlsx'):
             return True
@@ -44,7 +44,7 @@ class WbDataViews(viewsets.ModelViewSet):
 
         else:
             up_file = request.FILES['file']
-            name_file = self.check_name(up_file)
+            name_file = self.check_file_name(up_file)
             if not name_file:
                 return Response({'error': 'Ошибка: неверное расширение файла. Ожидалось .xlsx'})
             else:
@@ -60,9 +60,9 @@ class WbDataViews(viewsets.ModelViewSet):
                     list_links.append(f'https://www.wildberries.ru/catalog/{i}/detail.aspx')
                 # Delete file
                 os.remove(f'media/{up_file}')
-                list_jsons = tr(list_links)
-                for i in list_jsons:
+                list_paresr_data = paresr_data(list_links)
+                for i in list_paresr_data:
                     article_in_db = WbData.objects.filter(article=i['article'])
                     if not article_in_db:
                         self.save_db(i)
-                return Response({'data': list_jsons})
+                return Response({'data': list_paresr_data})
