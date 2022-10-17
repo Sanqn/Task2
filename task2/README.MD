@@ -40,6 +40,7 @@ article name in JSON format. Example: information about one article -
 8. Follow the link indicated on the "wbdata" page: "http://127.0.0.1:8000/wbdata/"
 9. Upload the xlsx file (for example, upload the test_file.xlsx file) or in the window (article) specify
    a value of this type: 73512949 and press post, wait for a response.
+
    ![Image text](https://i.ibb.co/hC1fKbq/Screen1.png)
 10. If you upload a file with a different extension, a warning will appear.
 11. The received data is stored in the database, if the next request the articles are repeated, 
