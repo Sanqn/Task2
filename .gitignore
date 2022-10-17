@@ -87,6 +87,7 @@ ipython_config.py
 
 # pyenv
 .python-version
+config.ini
 
 # SageMath parsed files
 *.sage.py
