@@ -6,7 +6,7 @@ image
 # 🧐 Find Me)
 * 💻 linkedin: https://www.linkedin.com/in/davidchik/
 * 📧 email: alex.davidchik@gmail.com
-* phone: +37529-181-15-55
+
 
 # Test task 2.
 1. Initially, you need to track traffic from www.wildberries.ru and find HTTP
