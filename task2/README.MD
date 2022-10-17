@@ -1,45 +1,46 @@
 👨‍💻 About me
-Алесандр Давидчик
+Alex Davidchik
 image
-# 👨‍💻 Алесандр Давидчик
+# 👨‍💻 Alex Davidchik
 
 # 🧐 Find Me)
 * 💻 linkedin: https://www.linkedin.com/in/davidchik/
 * 📧 email: alex.davidchik@gmail.com
 * phone: +37529-181-15-55
 
-# Тестовое задание 2.
-1. Изначально необходимо отследить трафик с www.wildberries.ru и найти HTTP
-запрос, который в JSON формате присылает данные о бренде и название
-артикула. Пример страницы товара:
+# Test task 2.
+1. Initially, you need to track traffic from www.wildberries.ru and find HTTP
+a request that sends data about the brand and name in JSON format
+article. Product page example:
 https://www.wildberries.ru/catalog/73512949/detail.aspx
-2. Далее необходимо реализовать API принимающее файл формата xlsx с
-артикулами (артикулы должны вводиться построчно в первой колонке) или
-один артикул (не в файле, а исключительно одно значение). В API должно быть
-два инпута: файл или одно значение, передаваться должно что-то одно.
-3. API должно асинхронно взаимодействовать с найденным HTTP запросом в
-первом пункте и получать данные о карточке товара. Из полученных данных
-необходимо сделать PyDantic объект.
-4. Успешным результатом работы API является возврат данных о бренде и
-названии артикула в JSON формате. Пример: информация об одном артикуле -
-{"article": 123, "brand": "brand", "title": "Title"}; артикулы из файла - [{"article": 1,
+2. Next, you need to implement an API that accepts an xlsx file with
+articles (articles must be entered line by line in the first column) or
+one article (not in the file, but only one value). The API should have
+two inputs: a file or one value, one thing must be transferred.
+3. The API must interact asynchronously with the found HTTP request in
+the first paragraph and receive data about the product card. From the received data
+need to make a PyDantic object.
+4. The successful result of the API is the return of data about the brand and
+article name in JSON format. Example: information about one article -
+{"article": 123, "brand": "brand", "title": "Title"}; articles from file - [{"article": 1,
 "brand": "Brand1", "title": "Title1"}, {"article": 2, "brand": "Brand2", "title": "Title2"}]
 
-# Установка и реализация
+# Installation and implementation
 
-1. Создайте папку где будет храниться приложение
-2. Создайте в вашей папке виртуальное окружение
-3. Скачайте приложение по ссылке - https://github.com/Sanqn/Task2.git
-   (в терминале вашей ide укажите команду 'git clone https://github.com/Sanqn/Task2.git')
-4. Для корректной работы программы перейдите в директорию где содержится файл manage.py и 
-   командой pip install -r requirements.txt установите все зависимости. 
-5. В task2/settings.py, в разделе DATABASESб укажите параметры базы данных Postgres
-6. Проведите миграции в бд командой python manage.py migrate
-7. Запустите сервер командой python manage.py runserver и перейдите по ссылке 
+1. Create a folder where the application will be stored
+2. Create a virtual environment in your folder
+3. Download the application from the link - https://github.com/Sanqn/Task2.git
+   (in the terminal of your ide, enter the command 'git clone https://github.com/Sanqn/Task2.git')
+4. For the program to work correctly, go to the directory containing the manage.py file and
+   pip install -r requirements.txt install all dependencies.
+5. In task2/settings.py, in the DATABASES section, specify the Postgres database settings
+6. Perform database migrations with the command python manage.py migrate
+7. Start the server with python manage.py runserver and follow the link
    Starting development server at http://127.0.0.1:8000/
-8. Перейдите по ссылке указанной на странице "wbdata": "http://127.0.0.1:8000/wbdata/"
-9. Загрузите файл xlsx(для примерна загрузите файлб test_file.xlsx) или в окне(article) укажите 
-   значение такого типа: 73512949 и нажмите post, Дождитесь ответа.
+8. Follow the link indicated on the "wbdata" page: "http://127.0.0.1:8000/wbdata/"
+9. Upload the xlsx file (for example, upload the test_file.xlsx file) or in the window (article) specify
+   a value of this type: 73512949 and press post, wait for a response.
    ![Image text](https://i.ibb.co/hC1fKbq/Screen1.png)
-10. Если загрузить файл с другим расширением появится предупреждение.
-11. Полученнве данные сохраняются в БД, если при следующем запросе артикулы повторяются данные в БД не добавляются.
+10. If you upload a file with a different extension, a warning will appear.
+11. The received data is stored in the database, if the next request the articles are repeated, 
+    the data is not added to the database.
